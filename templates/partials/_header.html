@@ -56,8 +56,15 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="{% url 'index' %}">Home</a></li>
-                                <li><a href="#">Receitas</a></li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'index' %}">Página Principal</a></li>
+                                <li><a href="{% url 'dashboard' %}">Minhas Receitas</a></li>
+                                <li><a href="{% url 'logout' %}">Sair</a></li>
+                                {% else %}
+                                <li><a href="{% url 'index' %}">Página Principal</a></li>
+                                <li><a href="{% url 'cadastro' %}">Cadastro</a></li>
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                {% endif %}
                             </ul>
 
                             <!-- Formulario de busca -->
