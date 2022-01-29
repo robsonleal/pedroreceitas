@@ -12,7 +12,7 @@
 {% include 'partials/_header.html' %}
 
 <!-- #### Dashboard Welcome Message ##### -->
-<div class="contact-area section-padding-0-80">
+<div class="contact-area section-padding-0-20">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -41,6 +41,8 @@
                     <div class="receipe-content">
                         <a href="{% url 'receita' receita.id %}">
                             <h5>{{ receita.nome_receita }}</h5>
+                            <a href="{% url 'editar_receita' receita.id %}" type="button" class="btn btn-info">Editar</a> 
+                            <a href="{% url 'deletar_receita' receita.id %}" type="button" class="btn btn-danger">Deletar</a>
                         </a>
                     </div>
                 </div>
