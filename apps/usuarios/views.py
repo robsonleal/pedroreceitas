@@ -4,10 +4,8 @@ from django.contrib import auth, messages
 from receitas.models import Receita
 
 
-def campo_vazio(campo):
-    return campo.strip() == ''
-
 def cadastro(request):
+    """ Realiza o cadastro de um usuário no sistema """
     if request.method == 'POST':
         nome = request.POST['nome']
         email = request.POST['email']
@@ -40,6 +38,7 @@ def cadastro(request):
         return render(request, 'usuarios/cadastro.html')
 
 def login(request):
+    """ Realiza o login de um usuário no sistema """
     if request.method == 'POST':
         email = request.POST['email']
         senha = request.POST['senha']
@@ -51,12 +50,13 @@ def login(request):
             user = auth.authenticate(request, username=nome, password=senha)
             if user is not None:
                 auth.login(request, user)
-                print('Login realizado com sucesso')
+                messages.success(request, 'Login realizado com sucesso!')
             return redirect('dashboard')
 
     return render(request, 'usuarios/login.html')
 
 def dashboard(request):
+    """ Exibir a dashboard para usuários que estão logados no sistema """
     if request.user.is_authenticated:
         id = request.user.id
         receitas = Receita.objects.order_by('-data_receita').filter(pessoa=id)
@@ -70,5 +70,11 @@ def dashboard(request):
         return redirect('index')
 
 def logout(request):
+    """ Faz o logout de usuários no sistema """
     auth.logout(request)
-    return redirect('index')
+    messages.error(request, 'Usuário deslogado!')
+    return redirect('login')
+
+def campo_vazio(campo):
+    """ Função para testar campos vazios """
+    return campo.strip() == ''
