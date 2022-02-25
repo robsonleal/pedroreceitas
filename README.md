@@ -38,17 +38,19 @@ Págína de login:
 
 ## Acesso ao Projeto
 
-** Você pode acessar o projeto pelo link http://pedroreceita.herokuapp.com/ (Neste link não será possivel ver as imagens do projeto) ** <br><br>
+** Deploy da aplicação http://pedroreceita.herokuapp.com/ (As imagens das receitas não estão sendo exibidas) ** <br><br>
 
-## instruções necessárias para baixar e executar o projeto
-** PRÉ-REQUISITOS: pip, PostgreSql, módulos do arquivo requirements.txt **
+## instruções para baixar e rodar localmente
+** PRÉ-REQUISITOS: Possuir o banco de dados PostgreSQL intalado e configurado na máquina **
 
-- Em um terminal siga os seguintes passos:
-1. `git clone git@github.com:robsonleal/pedroreceitas.git` -> Clonando o repositório;
-2. `cd pedroreceitas` -> Acesse a página do projeto;
-3. `python3 -m venv ./venv` -> Crie um ambiente virtual para desenvolvimento;
-4. `source /caminho_até_o_projeto/venv/bin/activate` -> Ativa o ambiante virtual;
-5. `python manage.py runserver` -> Executa o servidor;
+```console
+git clone git@github.com:robsonleal/pedroreceitas.git
+cd pedroreceitas
+python -m venv ./venv
+source /<caminho_até_o_projeto>/venv/bin/activate
+pip install 'requirements.txt'
+python manage.py runserver
+```
 - Abrir o endereço localhost:8000 no navegador de sua preferência
 
 ## Tecnologias utilizadas
