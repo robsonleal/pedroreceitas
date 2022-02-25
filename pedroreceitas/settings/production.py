@@ -1,5 +1,5 @@
+from .settings import *
 import environ
-from pedroreceitas.settings.base import *
 
 env = environ.Env()
 DEBUG = env.bool("DEBUG", False)
